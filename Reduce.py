@@ -1,10 +1,19 @@
 from PIL import Image
 import os
 
-os.chdir(r'C:\Users\dneeman\Google Drive\mentor-cards\production_cards')
+source = 'C:\\Users\\dneeman\\Downloads\\powers'
+destination = 'C:\\Users\\dneeman\\Google Drive\\mentor-cards\\reduced_size_images\\'
+os.chdir(source)
 files = os.listdir()
 images = [file for file in files if file.endswith(('jpg', 'png'))]
-for image in images:
-    print(image)
+start_pos = 0
+for index, image in enumerate(images, start=1):
+    prefix = "power"
+    if prefix != "":
+        image_name = prefix + "_" + str(start_pos + index)
+    else:
+        image_name = image
+    print(image_name)
     img = Image.open(image)
-    img.save("C:\\Users\\dneeman\\Google Drive\\mentor-cards\\reduced_size_images\\"+image, optimize=True, quality=30)
+    output = destination + image_name + "." + img.format.lower()
+    img.save(output, optimize=True, quality=30)
