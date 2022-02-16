@@ -1,19 +1,22 @@
 from PIL import Image
 import os
 
-source = 'C:\\Users\\dneeman\\Downloads\\powers'
-destination = 'C:\\Users\\dneeman\\Google Drive\\mentor-cards\\reduced_size_images\\'
+source = r'C:\Users\dneeman\Downloads\good'
 os.chdir(source)
 files = os.listdir()
 images = [file for file in files if file.endswith(('jpg', 'png'))]
-start_pos = 0
-for index, image in enumerate(images, start=1):
-    prefix = "power"
-    if prefix != "":
-        image_name = prefix + "_" + str(start_pos + index)
-    else:
-        image_name = image
-    print(image_name)
+should_rename =  True
+rename_name = "power_"
+ind = 1
+destination = source + "\\b"
+isExist = os.path.exists(destination)
+if not isExist:
+  os.makedirs(destination)
+for image in images:
+    print(image)
     img = Image.open(image)
-    output = destination + image_name + "." + img.format.lower()
-    img.save(output, optimize=True, quality=30)
+    name = image
+    if should_rename:
+        name = rename_name + str(ind) + "." + image.split(".")[1]
+    img.save(destination + "\\" + name, optimize=True, quality=30)
+    ind = ind + 1
