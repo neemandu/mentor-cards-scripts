@@ -1,12 +1,12 @@
 from PIL import Image
 import os
 
-source = r'C:\Users\dneeman\Downloads\avishai_values_small'
+source = r'C:\Users\neema\Downloads\vehicles'
 os.chdir(source)
 files = os.listdir()
 images = [file for file in files if file.endswith(('jpg', 'png'))]
 should_rename =  True
-rename_name = "avishai_values_"
+rename_name = "vehicles_"
 ind = 1
 destination = source + "\\reduced"
 isExist = os.path.exists(destination)
