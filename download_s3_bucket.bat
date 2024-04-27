@@ -1,1 +1,1 @@
-aws s3 cp s3://master-cards "C:\Users\dneeman\Google Drive\mentor-cards\production_cards" --recursive
+aws s3 cp s3://master-cards "C:\Users\neema\Google Drive\mentor-cards\production_cards" --recursive

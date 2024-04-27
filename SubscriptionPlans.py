@@ -14,14 +14,14 @@ headers = {
   "Content-Type": "application/json"
 }
 
-subs = ["View Point - Yarden Stempo"]
+subs = ["MCOS-KO"]
 
 for sub in subs:
     company = sub
     frequency = "YEAR"
     name = company + " - 1 " + frequency
     description = name + " subscription for " + company
-    price = 253
+    price = 400
 
     # Set the request payload
     data = {
@@ -78,7 +78,7 @@ for sub in subs:
     frequency = "MONTH"
     name = company + " - 1 " + frequency 
     description = name + " subscription for " + company
-    price = 24.9
+    price = 40
 
     # Set the request payload
     data = {
@@ -128,7 +128,8 @@ for sub in subs:
         print("Error creating billing plan")
         print(response.json())
 
-    ## MC subs    
+    ## MC subs  
+    """  
     company = sub
     frequency = "YEAR"
     name = company + " - 1 " + frequency + " MC Subs"
@@ -239,3 +240,4 @@ for sub in subs:
     else:
         print("Error creating billing plan")
         print(response.json())
+    """

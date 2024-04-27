@@ -29,14 +29,14 @@ def upload_files(path, fn):
                 s3_path = folder_name + file
                 upload_to_aws(full_path, bucket, s3_path)
 
-folder_name = "job"
-source = r'C:\Users\neema\Downloads\\' + folder_name
+folder_name = "ways"
+source = r'C:\Users\neema\Downloads\ways2'
 os.chdir(source)
 files = os.listdir()
-images = [file for file in files if file.endswith(('jpg', 'png'))]
+images = [file for file in files if file.lower().endswith(('jpg', 'png'))]
 should_rename =  True
 rename_name = folder_name + "_"
-ind = 1
+ind = 69
 destination = source + "\\reduced"
 isExist = os.path.exists(destination)
 if not isExist:
@@ -46,7 +46,12 @@ for image in images:
     img = Image.open(image)
     name = image
     if should_rename:
-        name = rename_name + str(ind) + "." + image.split(".")[1]
+        if "back" in image:
+            name = rename_name + "back_" + str(ind) + "." + image.split(".")[1]
+        elif "front" in image:
+            name = rename_name + "front_" + str(ind) + "." + image.split(".")[1]
+        else:
+            name = rename_name + str(ind) + "." + image.split(".")[1].lower()
     if img.height > img.width:
       img = img.resize((707, 1000))
     img.save(destination + "\\" + name, optimize=True, quality=30)
