@@ -14,7 +14,7 @@ headers = {
   "Content-Type": "application/json"
 }
 
-subs = ["MCOS-KO"]
+subs = ["MENTOR10"]
 
 for sub in subs:
     company = sub
